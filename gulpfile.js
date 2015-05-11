@@ -5,7 +5,13 @@ var compiler = require('gulp-cortex-handlebars-compiler');
 var less = require('gulp-less');
 var path = require('path');
 
-var error = function(e){console.error(e.stack);process.exit(1);}
+var error = function(e){
+  console.error(e);
+  if(e.stack){
+    console.error(e.stack);
+  }
+  process.exit(1);
+}
 
 gulp.task('img', function(){
   gulp.src('./img/**/*')
